@@ -1,4 +1,4 @@
-class Todo {
+export class Todo {
   static id = 1;
   constructor(desc, done = false) {
     this.id = Todo.id++;
