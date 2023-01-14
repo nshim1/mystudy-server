@@ -11,18 +11,22 @@ export class TodoService {
     //:Database
     return this.todos;
   }
-  createTodo(todo) {
-    const todoModel = new Todo(todo);
+  createTodo(todoDesc) {
+    const todoModel = new Todo(todoDesc);
     this.todos.push(todoModel);
+    return todoModel;
   }
-}
-
-//note
-
-export function getEmailTemplate(req, res) {
-  console.log(req.body);
-  const template = userService.getEmailTemplate(req.body.name);
-  res.json({
-    template,
-  });
+  deleteTodo(id) {
+    const targetTodo = this.todos.find((todo) => todo.id === Number(id));
+    this.todos = this.todos.filter((todo) => todo.id !== Number(id));
+    console.log(this.todos, id);
+    return targetTodo;
+  }
+  updateTodo(id, todo) {
+    const targetTodo = this.todos.find((todo) => todo.id === Number(id));
+    targetTodo.desc = todo;
+    targetTodo.updated = new Date();
+    console.log(this.todos);
+    return targetTodo;
+  }
 }
