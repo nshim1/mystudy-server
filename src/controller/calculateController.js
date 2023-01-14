@@ -9,7 +9,7 @@ export const calculateController = {
       num2: Number(req.params.num2),
     });
     res.json({
-      sum,
+      total: sum,
     });
   },
   getSumJquery: (req, res) => {
@@ -19,7 +19,7 @@ export const calculateController = {
       num2: Number(req.query.num2),
     });
     res.json({
-      sum2,
+      total: sum2,
     });
   },
   getDivision: (req, res) => {
